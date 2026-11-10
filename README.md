@@ -1,6 +1,20 @@
-# Painel de Indicadores Trindtech
+# Painel de Indicadores - Teste Trindtech
 
-Aplicacao para consultar IPCA e IGP-M usando os dados do sistema SGS do Banco Central.
+Painel full-stack desenvolvido para monitoramento e consulta de séries históricas de indicadores econômicos (**IPCA** - Código 433 e **IGP-M** - Código 189) através da API pública do Banco Central (SGS).
+
+## Tecnologias Utilizadas
+
+- **Back-end:** PHP 8+, Laravel, Laravel Sanctum (Autenticação API), MySQL.
+- **Front-end:** React, Recharts (Gráficos interativos), Axios, CSS Puro (Dark Mode corporativo).
+
+## Funcionalidades Implementadas
+- Acesso Protegido: Autenticação robusta via Laravel Sanctum.
+
+- Gerenciamento de Indicadores: Listagem em tempo real, edição flexível de nomes (mantendo os códigos SGS originais) e exclusão em cascata (removendo o indicador e todo o seu histórico).
+
+- Sincronização com o Banco Central: Botão dedicado para buscar e atualizar o período (01/01/2025 a 01/11/2026) sem gerar linhas duplicadas.
+
+- Consulta Avançada & Visualização: Filtros dinâmicos por indicador e intervalo de datas, tabelas corporativas responsivas com rolagem interna e gráficos de linha sincronizados via Recharts.
 
 ## Requisitos e instalacao (Windows)
 
