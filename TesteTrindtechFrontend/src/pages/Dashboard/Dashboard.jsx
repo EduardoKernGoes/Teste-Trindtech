@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../context/useAuth';
+import { useAuth } from '../../context/AuthContext.jsx';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/server';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -130,7 +130,7 @@ export default function Dashboard() {
     setError('');
     setSuccessMessage('');
     try {
-      await api.post('/indicadores/sincronizar');
+      await api.post('/indicadores/sincronizar', null, { timeout: 40000 });
       try {
         await refreshDashboard();
       } catch (err) {

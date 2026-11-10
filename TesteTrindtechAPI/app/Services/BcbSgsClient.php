@@ -20,7 +20,7 @@ class BcbSgsClient
     public function fetchSeries(int $code): array
     {
         $response = Http::acceptJson()
-            ->timeout(15)
+            ->timeout(15)->withoutVerifying()
             ->get("https://api.bcb.gov.br/dados/serie/bcdata.sgs.{$code}/dados", [
                 'formato' => 'json',
                 'dataInicial' => '01/01/2025',
