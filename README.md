@@ -4,7 +4,6 @@ Aplicacao para consultar IPCA e IGP-M usando os dados do sistema SGS do Banco Ce
 
 ## Requisitos
 
-- Windows
 - PHP 8.3 ou superior, com `pdo_mysql` e `curl` habilitados
 - Composer
 - Node.js 20.19+ ou 22.12+
@@ -25,3 +24,9 @@ Se a sincronizacao inicial nao puder acessar o Banco Central, confira a conexao 
 
 - E-mail: `admin@trindtech.com`
 - Senha: `senha123`
+
+## Possiveis erros
+
+1. Caso o inicializador der o seguinte erro: "SQLSTATE[HY000] [1045] Access danied for user 'root'@'localhost' (using password: NO)". Verifique o seu usuario e senha do banco de dados no arquivo `TesteTrindtechAPI/.env`.
+
+Para mais informações ou dúvidas entrar em contato via e-mail: edugoes215@gmail.com.
