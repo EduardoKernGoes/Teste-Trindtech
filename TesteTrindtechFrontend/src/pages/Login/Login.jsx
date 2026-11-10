@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import api from '../../services/server';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/useAuth';
 import './Login.css'
 
 export default function Login() {
@@ -8,23 +9,23 @@ export default function Login() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
+    const { login } = useAuth();
+    const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         setLoading(true);
 
         try {
-            const response = await api.get('/');
+            await login(email, password);
 
-            // No Axios, os dados vêm em response.data (e já são JSON)
-            console.log('Resposta completa do Axios:', response);
-            console.log('Dados da API:', response.data);
-
-            // Exemplo de alerta temporário para ver funcionando
-            alert(response.data.message);
+            navigate('/dashboard');
 
         } catch (err) {
-            setError(err.message || 'Credenciais inválidas. Verifique os dados.');
+            console.error(err);
+
+            setError(err.response?.data?.message || 'Credenciais inválidas. Verifique os dados.');
         } finally {
             setLoading(false);
         }
